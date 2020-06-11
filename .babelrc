@@ -1,0 +1,22 @@
+{
+  "plugins": [
+    "@babel/plugin-proposal-optional-chaining"
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "debug": true,
+        "modules": false,
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "targets": {
+          "browsers": [
+            "last 10 version"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ]
+}
