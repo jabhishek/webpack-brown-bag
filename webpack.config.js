@@ -6,6 +6,7 @@ module.exports = (_, argv) => {
     console.log(argv.mode);
 
     return {
+        mode: argv.mode,
         entry: './src/index.js',
         output: {
             filename: '[name].[contenthash:5].js',
@@ -24,7 +25,8 @@ module.exports = (_, argv) => {
         devServer: {
             contentBase: path.join(__dirname, 'dist'),
             compress: true,
-            port: 9000
+            port: 3000,
+            historyApiFallback: true,
         },
         plugins: [
             new BundleAnalyzerPlugin({

@@ -1,4 +1,20 @@
 import React from 'react';
-import { render } from 'react-dom';
+import {render} from 'react-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {Home} from "./container/HomePage";
+import {StorePage} from "./container/StorePage";
+import {ListPage} from "./container/ListPage";
+import {NotFound} from "./container/NotFound";
 
-render(<div>Hello World!!!</div>, document.getElementById('app'));
+const App = () => {
+    return <BrowserRouter>
+        <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/store" component={StorePage}/>
+            <Route path="/list" component={ListPage}/>
+            <Route component={NotFound}/>
+        </Switch>
+    </BrowserRouter>
+}
+
+render(<App/>, document.getElementById('app'));
