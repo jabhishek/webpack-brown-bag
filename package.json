@@ -1,0 +1,7 @@
+{
+  "name": "webpack-brown-bag",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Abhishek Jain <abhi2000@gmail.com>",
+  "license": "MIT"
+}
