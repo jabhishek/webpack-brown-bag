@@ -6,16 +6,21 @@ import {StorePage} from "./container/StorePage";
 import {ListPage} from "./container/ListPage";
 import {NotFound} from "./container/NotFound";
 
-console.log('Hi');
-
 const App = () => {
-    console.log('Heya');
     return <BrowserRouter>
         <Switch>
-            <Route path="/" exact component={Home}/>
-            <Route path="/store/:code" component={StorePage}/>
-            <Route path="/list" component={ListPage}/>
-            <Route component={NotFound}/>
+            <Route path="/" exact>
+                <Home/>
+            </Route>
+            <Route path="/store/:code">
+                <StorePage/>
+            </Route>
+            <Route path="/list">
+                <ListPage/>
+            </Route>
+            <Route>
+                <NotFound/>
+            </Route>
         </Switch>
     </BrowserRouter>
 }

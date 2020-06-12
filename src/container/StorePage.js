@@ -2,14 +2,8 @@ import {Page} from "../components/Page";
 import React, {useEffect, useState} from "react";
 import {get} from 'lodash';
 import {useParams} from "react-router";
-import {MOCK_STORES} from "../MOCK_DATA";
-
-const storeData = {
-    content: {
-        code: '0567',
-        name: 'London Colney'
-    }
-}
+import {MOCK_STORES} from "../MOCK_STORES";
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 const useFetchStoreData = (code) => {
     const [store, setStore] = useState(null);
@@ -30,14 +24,12 @@ export const StorePage = () => {
     const {code} = useParams();
     const {store} = useFetchStoreData(code);
 
-    console.log('code', code);
-
     return <Page>
         <h1>Store Details</h1>
         {
             store ?
                 <p>Showing details for <b>{get(store, 'name')}</b></p> :
-                <h3>Fetching Store Data...</h3>
+                <LinearProgress />
         }
     </Page>
 };

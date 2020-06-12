@@ -3,14 +3,13 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (_, argv) => {
-    console.log(argv.mode);
-
+    const isDevMode = argv.mode === 'development';
     return {
         mode: argv.mode,
         entry: './src/index.js',
         output: {
-            filename: '[name].[contenthash:5].js',
-            chunkFilename: '[name].[contenthash:5].chunk.js',
+            filename: isDevMode ? '[name].js': '[name].[contenthash:5].js',
+            chunkFilename: isDevMode ? '[name].js': '[name].[contenthash:5].js',
             path: path.resolve(process.cwd(), 'dist'),
             publicPath: "/"
         },
@@ -22,12 +21,6 @@ module.exports = (_, argv) => {
                     exclude: /node_modules/,
                 }
             ]
-        },
-        devServer: {
-            contentBase: path.join(__dirname, 'dist'),
-            compress: true,
-            port: 3000,
-            historyApiFallback: true,
         },
         plugins: [
             new BundleAnalyzerPlugin({

@@ -1,13 +1,18 @@
 import {Page} from "../components/Page";
 import React from "react";
-import moment from "moment";
+import {SomeLargeComponent} from "../components/SomeLargeComponent";
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 export const Home = () => {
+    const [shouldDisplayDetails, toggleShouldDisplayDetails] = React.useState(false);
     return <Page>
         <h1>Home</h1>
+        <FormControlLabel control={<Switch
+            checked={shouldDisplayDetails}
+            onChange={(event) => toggleShouldDisplayDetails(event.target.checked)}
+        />} label="Show Details"/>
 
-        <em><time>Today's date: {moment().format('DD MMM YYYY')}</time></em>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, aspernatur beatae cumque delectus ducimus eaque fugit labore libero magnam maxime minus modi neque numquam officia perspiciatis porro quo recusandae reiciendis sed soluta sunt tempora vero vitae voluptas voluptatum! Accusamus aliquam amet architecto asperiores aspernatur at atque commodi culpa cum cupiditate, delectus deleniti dicta dolore dolorem doloremque dolorum ea eius harum illo illum iure nisi numquam perferendis, perspiciatis possimus quaerat ratione repudiandae, rerum sint sit soluta temporibus tenetur vel velit veniam vero vitae! Ab deleniti dignissimos, facere in ipsam ipsum maiores nesciunt provident quidem, rerum similique sint tempore temporibus! Doloribus, et.</p>
+        {shouldDisplayDetails && <SomeLargeComponent/>}
     </Page>
 };

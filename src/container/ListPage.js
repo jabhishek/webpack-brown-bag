@@ -2,7 +2,7 @@ import {Page} from "../components/Page";
 import React from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import {MOCK_STORES} from "../MOCK_DATA";
+import {MOCK_STORES} from "../MOCK_STORES";
 import {Link} from "@material-ui/core";
 import {Link as RouterLink} from "react-router-dom";
 
