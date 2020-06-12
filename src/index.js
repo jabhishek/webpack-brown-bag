@@ -1,25 +1,35 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import {render} from 'react-dom';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import {Home} from "./container/HomePage";
-import {StorePage} from "./container/StorePage";
-import {ListPage} from "./container/ListPage";
-import {NotFound} from "./container/NotFound";
+import LinearProgress from "@material-ui/core/LinearProgress";
+
+const Home = React.lazy(() => import(/* webpackChunkName: "home-page" */"./container/HomePage"))
+const StorePage = React.lazy(() => import(/* webpackChunkName: "store-page" */"./container/StorePage"))
+const ListPage = React.lazy(() => import(/* webpackChunkName: "list-page" */"./container/ListPage"))
+const NotFoundPage = React.lazy(() => import(/* webpackChunkName: "not-found" */"./container/NotFound"))
 
 const App = () => {
     return <BrowserRouter>
         <Switch>
             <Route path="/" exact>
-                <Home/>
+                <Suspense fallback={<LinearProgress />}>
+                    <Home />
+                </Suspense>
             </Route>
             <Route path="/store/:code">
-                <StorePage/>
+                <Suspense fallback={<LinearProgress />}>
+                    <StorePage />
+                </Suspense>
             </Route>
             <Route path="/list">
-                <ListPage/>
+                <Suspense fallback={<LinearProgress />}>
+                    <ListPage />
+                </Suspense>
             </Route>
             <Route>
-                <NotFound/>
+                <Suspense fallback={<LinearProgress />}>
+                    <NotFoundPage />
+                </Suspense>
             </Route>
         </Switch>
     </BrowserRouter>

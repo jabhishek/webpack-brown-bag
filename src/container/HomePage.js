@@ -1,8 +1,10 @@
 import {Page} from "../components/Page";
 import React from "react";
-import {SomeLargeComponent} from "../components/SomeLargeComponent";
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import LinearProgress from "@material-ui/core/LinearProgress";
+
+const SomeLargeComponent = React.lazy(() => import(/* webpackChunkName: "large-component" */'../components/SomeLargeComponent'))
 
 export const Home = () => {
     const [shouldDisplayDetails, toggleShouldDisplayDetails] = React.useState(false);
@@ -13,6 +15,12 @@ export const Home = () => {
             onChange={(event) => toggleShouldDisplayDetails(event.target.checked)}
         />} label="Show Details"/>
 
-        {shouldDisplayDetails && <SomeLargeComponent/>}
+        {shouldDisplayDetails &&
+        <React.Suspense fallback={<LinearProgress/>}>
+            <SomeLargeComponent/>
+        </React.Suspense>
+        }
     </Page>
 };
+
+export default Home;

@@ -31,6 +31,13 @@ module.exports = (_, argv) => {
                 inject: true,
                 template: 'public/index.html'
             })
-        ]
+        ],
+        optimization: {
+            runtimeChunk: 'single',
+            usedExports: true,
+            splitChunks: {
+                chunks: 'all',
+            },
+        },
     }
 };

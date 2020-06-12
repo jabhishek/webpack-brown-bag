@@ -33,3 +33,5 @@ export const StorePage = () => {
         }
     </Page>
 };
+
+export default StorePage;

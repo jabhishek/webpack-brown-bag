@@ -25,3 +25,4 @@ export const ListPage = () => {
     </Page>
 };
 
+export default ListPage;

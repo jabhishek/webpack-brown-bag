@@ -6,3 +6,5 @@ export const NotFound = () => {
         <h1>NotFound!!</h1>
     </Page>
 };
+
+export default NotFound;

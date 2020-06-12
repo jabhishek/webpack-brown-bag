@@ -16,3 +16,5 @@ export const SomeLargeComponent = () => {
 
     </div>
 }
+
+export default SomeLargeComponent;
