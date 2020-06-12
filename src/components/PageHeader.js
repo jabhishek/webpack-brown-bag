@@ -1,10 +1,10 @@
-import {Link} from "react-router-dom";
+import {Link as RouterLink} from "react-router-dom";
 import React from "react";
+import Link from '@material-ui/core/Link'
 
 export const PageHeader = () => {
-    return <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/store">Store</Link></li>
-        <li><Link to="/list">List</Link></li>
-    </ul>
+    return <div style={ {backgroundColor: '#f0f0f0', padding: 10} }>
+        <Link component={RouterLink} to="/" style={ {marginRight: 12} }>Home</Link>
+        <Link component={RouterLink} to="/list" style={ {marginRight: 12} }>List</Link>
+    </div>
 }

@@ -1,9 +1,12 @@
 import React from 'react';
 import {PageHeader} from "./PageHeader";
+import Container from "@material-ui/core/Container";
 
-export const Page = ({ children }) => {
+export const Page = ({children}) => {
     return <div>
-        <PageHeader />
-        { children }
+        <PageHeader/>
+        <Container>
+            {children}
+        </Container>
     </div>
 }

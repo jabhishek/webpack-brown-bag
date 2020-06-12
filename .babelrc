@@ -1,7 +1,4 @@
 {
-  "plugins": [
-    "@babel/plugin-proposal-optional-chaining"
-  ],
   "presets": [
     [
       "@babel/preset-env",
@@ -12,7 +9,7 @@
         "corejs": 3,
         "targets": {
           "browsers": [
-            "last 10 version"
+            "last 1 version"
           ]
         }
       }

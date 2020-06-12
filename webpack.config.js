@@ -11,7 +11,8 @@ module.exports = (_, argv) => {
         output: {
             filename: '[name].[contenthash:5].js',
             chunkFilename: '[name].[contenthash:5].chunk.js',
-            path: path.resolve(process.cwd(), 'dist')
+            path: path.resolve(process.cwd(), 'dist'),
+            publicPath: "/"
         },
         module: {
             rules: [
