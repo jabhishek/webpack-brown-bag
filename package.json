@@ -17,6 +17,7 @@
   },
   "scripts": {
     "build": "rimraf dist && webpack --mode=development",
+    "build:prod": "rimraf dist && webpack --mode=production",
     "start": "http-server-spa ./dist"
   },
   "devDependencies": {
