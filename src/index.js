@@ -1,4 +1,3 @@
-import React from 'react';
-import { render } from 'react-dom';
+import {render} from "./render";
 
-render(<div>Hello World!!!</div>, document.getElementById('app'));
+render( 'Hello World!');
